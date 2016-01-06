@@ -19,3 +19,11 @@ chmod 0600 ~/.ssh/authorized_keys
 
 ssh vagrant@hadoop-master
 
+ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@hadoop-master
+ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@hadoop-slave-1
+
+ssh vagrant@hadoop-master
+ssh vagrant@hadoop-slave-1
+ 
+
+
