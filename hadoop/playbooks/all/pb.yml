@@ -1,0 +1,33 @@
+- hosts: hadoop-all
+  become: yes
+  remote_user: vagrant
+  vars:
+    hostname :
+      - 'hadoop-master'
+      - 'hadoop-slave-1'
+      - 'hadoop-slave-2'
+  tasks:
+    - name: Update file hosts
+      copy: src=../init/files/hosts dest=/etc/hosts
+
+    - name: Copy masters file
+      copy: src=files/masters dest=/home/vagrant/hadoop/etc/hadoop/masters
+
+    - name: Copy slaves file
+      copy: src=files/slaves dest=/home/vagrant/hadoop/etc/hadoop/slaves
+
+    - name: Make sure the known hosts file exists
+      file: "path='/home/vagrant/.ssh/known_hosts' state=touch"
+
+    - name: Change vagrant owner
+      shell: chown vagrant:vagrant /home/vagrant/.ssh/known_hosts
+
+    - name: Add known_hosts
+      shell: ssh-keyscan {{ item }} >> /home/vagrant/.ssh/known_hosts
+      with_items: hostname
+
+    - name: Add publickey to server
+      authorized_key:
+        user: "vagrant"
+        key: "{{ lookup('file', 'files/'+item+'/id_rsa.pub' ) }}"
+      with_items: hostname

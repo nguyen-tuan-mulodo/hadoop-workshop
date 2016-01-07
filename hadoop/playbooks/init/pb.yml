@@ -1,0 +1,27 @@
+---
+- hosts: "{{ hadoop_node }}"
+  sudo: yes
+  remote_user: vagrant
+  tasks:
+    - name: Update file hosts
+      copy: src=files/hosts dest=/etc/hosts
+
+    - name: Update hostname
+      template: src=files/network dest=/etc/sysconfig/network
+      with_items: hostname
+
+    - name: Restart network service
+      service: name=network state=restarted
+
+    - name: Create ssh-key
+      user: name=vagrant
+            generate_ssh_key=yes
+            ssh_key_comment="vagrant@{{ hostname }}"
+
+    - name: Copy pub to private keys
+      shell: cat /home/vagrant/.ssh/id_rsa.pub >> /home/vagrant/.ssh/authorized_keys
+
+    - name: Download public key
+      fetch: src=/home/vagrant/.ssh/id_rsa.pub
+             dest=../all/files/{{ hostname }}/id_rsa.pub
+             flat=yes
