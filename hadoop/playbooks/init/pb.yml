@@ -23,5 +23,5 @@
 
     - name: Download public key
       fetch: src=/home/vagrant/.ssh/id_rsa.pub
-             dest=../all/files/{{ hostname }}/id_rsa.pub
+             dest=../all/download/{{ hostname }}/id_rsa.pub
              flat=yes

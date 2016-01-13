@@ -5,6 +5,7 @@
     hostname :
       - 'hadoop-master'
       - 'hadoop-slave-1'
+      - 'hadoop-slave-2'
   tasks:
     - name: Update file hosts
       copy: src=../init/files/hosts dest=/etc/hosts
@@ -31,5 +32,5 @@
     - name: Add publickey to server
       authorized_key:
         user: "vagrant"
-        key: "{{ lookup('file', 'files/'+item+'/id_rsa.pub' ) }}"
+        key: "{{ lookup('file', 'download/'+item+'/id_rsa.pub' ) }}"
       with_items: hostname

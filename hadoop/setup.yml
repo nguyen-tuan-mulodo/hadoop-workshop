@@ -1,4 +1,4 @@
 ---
 - include: playbooks/init/pb.yml
-#- include: playbooks/java/pb.yml
-#- include: playbooks/hadoop/pb.yml
+- include: playbooks/java/pb.yml
+- include: playbooks/hadoop/pb.yml

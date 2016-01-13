@@ -1,14 +1,14 @@
 Host 192.168.24.10
   User vagrant
   TCPKeepAlive yes
-  IdentityFile /Users/Tuan/Vagrant/hadoop/hadoop-master/.vagrant/machines/default/virtualbox/private_key
+  IdentityFile /Users/Tuan/Vagrant/hadoop-workshop/hadoop/hadoop-master/.vagrant/machines/default/virtualbox/private_key
 
 Host 192.168.24.11
   User vagrant
   TCPKeepAlive yes
-  IdentityFile /Users/Tuan/Vagrant/hadoop/hadoop-slave-1/.vagrant/machines/default/virtualbox/private_key
+  IdentityFile /Users/Tuan/Vagrant/hadoop-workshop/hadoop/hadoop-slave-1/.vagrant/machines/default/virtualbox/private_key
 
 Host 192.168.24.12
   User vagrant
   TCPKeepAlive yes
-  IdentityFile /Users/Tuan/Vagrant/hadoop/hadoop-slave-2/.vagrant/machines/default/virtualbox/private_key
+  IdentityFile /Users/Tuan/Vagrant/hadoop-workshop/hadoop/hadoop-slave-2/.vagrant/machines/default/virtualbox/private_key
