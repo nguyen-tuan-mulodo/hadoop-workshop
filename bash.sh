@@ -1,3 +1,11 @@
+mkdir hadoop
+cd hadoop
+mkdir hadoop-master
+cd hadoop-master/
+vagrant init
+vagrant box list
+vagrant plugin list
+
 
 yum search java | grep 'java-'
 
@@ -24,6 +32,6 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@hadoop-slave-1
 
 ssh vagrant@hadoop-master
 ssh vagrant@hadoop-slave-1
- 
+
 
 

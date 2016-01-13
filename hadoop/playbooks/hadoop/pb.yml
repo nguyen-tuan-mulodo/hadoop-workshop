@@ -3,15 +3,17 @@
   sudo: yes
   remote_user: vagrant
   tasks:
-    - name: download hadoop
-      get_url: url=http://mirrors.viethosting.vn/apache/hadoop/common/hadoop-2.6.3/hadoop-2.6.3.tar.gz
-               dest=/home/vagrant/
+    - name: copy file hadoop
+      shell: cp /vagrant/data/hadoop-2.6.3.tar.gz /home/vagrant
 
     - name: unzip hadoop
       shell: tar xzf hadoop-2.6.3.tar.gz
 
     - name: rename hadoop folder
       shell: mv hadoop-2.6.3 hadoop
+
+    - name: remove hadoop file
+      shell: rm hadoop-2.6.3.tar.gz
 
     - name: change vagrant owner
       shell: chown -R vagrant:vagrant hadoop

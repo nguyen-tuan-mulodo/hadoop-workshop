@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant/data":{"guestpath":"/vagrant/data","hostpath":"/Users/Tuan/Vagrant/hadoop-workshop/hadoop/data","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/Tuan/Vagrant/hadoop-workshop/hadoop/hadoop-slave-1","disabled":false}}}

@@ -5,7 +5,6 @@
     hostname :
       - 'hadoop-master'
       - 'hadoop-slave-1'
-      - 'hadoop-slave-2'
   tasks:
     - name: Update file hosts
       copy: src=../init/files/hosts dest=/etc/hosts
@@ -15,6 +14,9 @@
 
     - name: Copy slaves file
       copy: src=files/slaves dest=/home/vagrant/hadoop/etc/hadoop/slaves
+
+    - name: Remove known_hosts
+      command: rm -f /home/vagrant/.ssh/known_hosts
 
     - name: Make sure the known hosts file exists
       file: "path='/home/vagrant/.ssh/known_hosts' state=touch"
