@@ -6,6 +6,9 @@
       - 'hadoop-master'
       - 'hadoop-slave-1'
       - 'hadoop-slave-2'
+      - 'hadoop-slave-3'
+      - 'hadoop-slave-4'
+      - 'hadoop-slave-5'
   tasks:
     - name: Update file hosts
       copy: src=../init/files/hosts dest=/etc/hosts
@@ -15,6 +18,21 @@
 
     - name: Copy slaves file
       copy: src=files/slaves dest=/home/vagrant/hadoop/etc/hadoop/slaves
+
+    - name: copy config files hadoop-env.sh
+      copy: src=../hadoop/hadoop/hadoop-env.sh dest=/home/vagrant/hadoop/etc/hadoop/hadoop-env.sh
+
+    - name: copy config files core-site.xml
+      copy: src=../hadoop/hadoop/core-site.xml dest=/home/vagrant/hadoop/etc/hadoop/core-site.xml
+
+    - name: copy config files hdfs-site.xml
+      copy: src=../hadoop/hadoop/hdfs-site.xml dest=/home/vagrant/hadoop/etc/hadoop/hdfs-site.xml
+
+    - name: copy config files yarn-site.xml
+      copy: src=../hadoop/hadoop/yarn-site.xml dest=/home/vagrant/hadoop/etc/hadoop/yarn-site.xml
+
+    - name: copy config files mapred-site.xml
+      copy: src=../hadoop/hadoop/mapred-site.xml dest=/home/vagrant/hadoop/etc/hadoop/mapred-site.xml
 
     - name: Remove known_hosts
       command: rm -f /home/vagrant/.ssh/known_hosts

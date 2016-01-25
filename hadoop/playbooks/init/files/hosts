@@ -1,3 +1,6 @@
 192.168.24.10 hadoop-master
 192.168.24.11 hadoop-slave-1
 192.168.24.12 hadoop-slave-2
+192.168.24.13 hadoop-slave-3
+192.168.24.14 hadoop-slave-4
+192.168.24.15 hadoop-slave-5
